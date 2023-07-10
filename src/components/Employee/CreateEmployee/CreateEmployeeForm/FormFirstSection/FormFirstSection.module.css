@@ -1,0 +1,16 @@
+.main{
+    @apply flex
+}
+
+.SectionItem{
+    @apply text-[0.6rem] w-[30%] m-2 flex flex-col
+}
+
+.label{
+    @apply font-bold
+}
+
+.input{
+    @apply border border-black
+}
+

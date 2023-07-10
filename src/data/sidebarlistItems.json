@@ -1,0 +1,81 @@
+[
+    {
+        "title":"Home",
+        "isOpen":false,
+        "image":"faHouse", 
+        "subList":[]
+    },
+    {
+        "title":"Employee",
+        "isOpen":false,
+        "image":"faUsers",
+        "subList":[
+            {
+                "title":"Create",
+                "path":"/Employee/Create"
+            },
+            {
+                "title":"Search",
+                "path":"/Employee/Search"
+            }
+        ]
+    },
+    {
+        "title":"More",
+        "isOpen":false,
+        "image":"faList",
+        "subList":[
+            {
+                "title":"Multiple Tabs",
+                "path":"/Home/Multiple Tabs"
+            },
+            {
+                "title":"Menu",
+                "path":"/Home/Menu"
+            },
+            {
+                "title":"Create",
+                "path":"/Home/Create"
+            },
+            {
+                "title":"Autocomplete",
+                "path":"/Home/Autocomplete"
+            },
+            {
+                "title":"Collapsible Content",
+                "path":"/Home/Collapse"
+            },
+            {
+                "title":"Images",
+                "path":"/Home/UploadImage"
+            },
+            {
+                "title":"Slider",
+                "path":"/Home/Slider"
+            },
+            {
+                "title":"Tooltips",
+                "path":"/Home/Tooltips"
+            },
+            {
+                "title":"Links",
+                "path":"/HomeLinks"
+            },
+            {
+                "title":"CSS Properties",
+                "path":"/Home/CSSProperty"
+            },
+            {
+                "title":"iFrames",
+                "path":"/Home/iFrame"
+            }
+        ]
+    },
+    {
+        "title":"Settings",
+        "isOpen":false,
+        "image":"faGear",
+        "subList":[]
+    }
+
+]

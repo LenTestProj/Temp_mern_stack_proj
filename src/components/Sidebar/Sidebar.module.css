@@ -1,0 +1,4 @@
+.main{
+    @apply w-[13rem] h-[100vh] bg-[#10282b] text-white flex flex-col pl-3
+}
+

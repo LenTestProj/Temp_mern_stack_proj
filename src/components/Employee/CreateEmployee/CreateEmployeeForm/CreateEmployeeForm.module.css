@@ -1,0 +1,12 @@
+.main{
+    @apply px-2 py-2
+}
+
+.form{
+    @apply w-[98.5%] bg-white
+}
+
+.header{
+    @apply text-[0.8rem] pt-2 pl-[0.4rem] pb-1
+}
+
