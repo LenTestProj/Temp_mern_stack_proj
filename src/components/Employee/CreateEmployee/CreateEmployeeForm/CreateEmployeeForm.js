@@ -1,25 +1,10 @@
 import React from 'react';
 import classes from './CreateEmployeeForm.module.css';
+import FormFifthSection from './FormFifthSection/FormFifthSection';
 import FormFirstSecion from './FormFirstSection/FormFirstSecion';
+import FormFourthSection from './FormFourthSection/FormFourthSection';
 import FormSecondSection from './FormSecondSection/FormSecondSection';
-
-
-
-const SecondSectionValues=[
-    {
-        value:"Mobile Number",
-        placeholder:"Mobile No",
-        error:'Please enter mobile number',
-        type:'text'
-    },
-    {
-        value:"Date of Birth",
-        placeholder:"dd/mm/yy",
-        error:'',
-        type:'date'    
-    }
-]
-
+import FormThirdSection from './FormThirdSection/FormThirdSection';
 
 
 const CreateEmployeeForm = () => {
@@ -30,6 +15,16 @@ const CreateEmployeeForm = () => {
         <hr />
         <FormFirstSecion />
         <FormSecondSection />
+        <FormThirdSection />
+        <FormFourthSection />
+        <p className={classes.header}>Skills</p>
+        <hr />
+        <FormFifthSection />
+        <hr />
+        <div className={classes.buttonSection}>
+          <button className={classes.button+' bg-green-700 mr-1'}>Save</button>
+          <button className={classes.button+' bg-red-600 '}>Cancel</button>
+        </div>
       </form>
     </div>
   )

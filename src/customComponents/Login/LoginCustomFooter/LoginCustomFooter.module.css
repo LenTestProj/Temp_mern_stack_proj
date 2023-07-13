@@ -1,3 +1,7 @@
 .main{
-    @apply bg-[#136a9c] pt-5 pb-6 px-2 mt-4 text-[0.73rem] text-white rounded-sm ml-3 w-[45rem] text-left
+    @apply mt-7 rounded-sm mx-3 flex flex-col items-center 
+}
+
+.text{
+    @apply w-[85rem] bg-[#136a9c] pt-5 pb-6 px-2 text-white text-[0.73rem] text-left
 }

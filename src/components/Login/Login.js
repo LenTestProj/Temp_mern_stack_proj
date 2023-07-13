@@ -8,7 +8,7 @@ const Login = () => {
   const inputArray=useInput();
   
   return (
-    <div className='text-center bg-slate-400/75 pb-4 h-[100vh]'>
+    <div className='text-center bg-slate-400/75 pb-4 h-[100vh] flex flex-col justify-center'>
       <LoginCustomHeader title="JALA Academy" isSignInPage={true}/>
       <LoginCustomForm title="Sign in" inputs={inputArray} isSignInPage={true} submitButtonName="Sign in" />
       <LoginCustomFooter />

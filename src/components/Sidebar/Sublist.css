@@ -1,5 +1,6 @@
 .sublist-display-enter{
     transform: translateX(-110%);
+    
   }
   
   .sublist-display-enter-active{

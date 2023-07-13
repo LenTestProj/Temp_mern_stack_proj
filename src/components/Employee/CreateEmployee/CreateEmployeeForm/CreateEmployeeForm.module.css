@@ -10,3 +10,10 @@
     @apply text-[0.8rem] pt-2 pl-[0.4rem] pb-1
 }
 
+.buttonSection{
+    @apply flex justify-end p-2
+}
+
+.button{
+    @apply py-1 px-2 text-[0.65rem] text-white cursor-pointer
+}

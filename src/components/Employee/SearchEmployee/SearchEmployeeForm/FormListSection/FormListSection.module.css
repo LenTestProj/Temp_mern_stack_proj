@@ -1,0 +1,15 @@
+.main{
+    @apply flex flex-col items-center pt-6 pb-5
+}
+
+.listHeaderSection{
+    @apply flex w-[98%]  
+}
+
+.listItem{
+    @apply flex text-[0.6rem] border border-gray-200 p-1 justify-between overflow-hidden items-center
+}
+
+.lisItemHeaderSymbol{
+    @apply pt-1 text-gray-500
+}

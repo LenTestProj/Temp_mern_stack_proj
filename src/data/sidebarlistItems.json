@@ -27,15 +27,11 @@
         "subList":[
             {
                 "title":"Multiple Tabs",
-                "path":"/Home/Multiple Tabs"
+                "path":"/Home/Tabs"
             },
             {
                 "title":"Menu",
                 "path":"/Home/Menu"
-            },
-            {
-                "title":"Create",
-                "path":"/Home/Create"
             },
             {
                 "title":"Autocomplete",

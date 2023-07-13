@@ -27,7 +27,7 @@ const FormFirstSecion = () => {
     <div className={classes.main}>
       {FirstSectionValues.map((item, i) => {
         return (
-          <div className={classes.SectionItem}>
+          <div className={classes.SectionItem} key={i}>
             <label className={classes.label}>{item.value}</label>
             <input type={item.type} placeholder={item.placeholder} className={classes.input}/>
           </div>

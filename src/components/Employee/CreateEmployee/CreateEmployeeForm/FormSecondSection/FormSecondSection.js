@@ -21,7 +21,7 @@ const FormSecondSection = () => {
     <div className={classes.main}>
       {SecondSectionValues.map((item, i) => {
         return (
-          <div className={classes.SectionItem}>
+          <div className={classes.SectionItem} key={i}>
             <label className={classes.label}>{item.value}</label>
             <input
               type={item.type}

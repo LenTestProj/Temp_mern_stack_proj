@@ -85,7 +85,7 @@ const SidebarList = () => {
                 <ul>
                     {item.subList.map((subItem, subIndex) => {
                       return (
-                        <li>
+                        <li key={subIndex}>
                           <div className={classes.subListItemSection} onClick={()=>navigate(subItem.path)}>
                             <FontAwesomeIcon
                               icon={(i===1 && subIndex===0)?faPenToSquare:(i===1 && subIndex===1)?faSearch:faHandPointRight}

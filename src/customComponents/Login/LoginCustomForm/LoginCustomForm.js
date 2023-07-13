@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate, useNavigatek } from "react-router-dom";
+import CustomCheckBox from "../../customCheckBox/CustomCheckBox";
 import classes from "./LoginCustomForm.module.css";
 
 //main function
@@ -39,15 +40,7 @@ const LoginCustomForm = ({ title, inputs, isSignInPage,submitButtonName }) => {
         })}
 
         <div className={classes.rememberSignIn}>
-          {isSignInPage ?<div className="flex pt-2 cursor-pointer group">
-            <input
-              type="checkbox"
-              className={
-                classes.rememberMeCheckBox + " group-hover:bg-slate-300"
-              }
-            />
-            <p className="pl-2 ">Remember Me</p>
-          </div>:<Link to="/" className="pl-2 ">Back</Link>}
+          {isSignInPage ?<CustomCheckBox classname="w-4 h-4" text="Remember Me"/>:<Link to="/" className="pl-2 ">Back</Link>}
           <button type="submit" className={classes.signinButton}>
             {submitButtonName}
           </button>
