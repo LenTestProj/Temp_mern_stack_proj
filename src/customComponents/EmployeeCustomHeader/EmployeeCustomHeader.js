@@ -29,7 +29,7 @@ const EmployeeCustomHeader = ({value,employeeType}) => {
         {employeeType?<><p>Employee</p>
         <p className={classes.firstHalfCreateText}>{value}</p></>:<p>{value}</p>}
       </div>
-      <div>
+      <div className={classes.secondHalfEmployeeText}>
         <ul className="flex">
             {rightTopvalues.map((item,i)=>
                 <li className={classes.listItem+` ${i===0?'cursor-pointer':''}`} onClick={()=>i===0?navigate('/Home/Index'):{}} key={i}>

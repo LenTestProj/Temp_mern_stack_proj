@@ -51,19 +51,23 @@
             },
             {
                 "title":"Tooltips",
-                "path":"/Home/Tooltips"
+                "path":"/Home/Tooltip"
+            },
+            {
+                "title":"Popups",
+                "path":"/Home/Popup"
             },
             {
                 "title":"Links",
-                "path":"/HomeLinks"
+                "path":"/Home/Links"
             },
             {
                 "title":"CSS Properties",
                 "path":"/Home/CSSProperty"
             },
             {
-                "title":"iFrames",
-                "path":"/Home/iFrame"
+                "title":"IFrames",
+                "path":"/Home/Iframe"
             }
         ]
     },

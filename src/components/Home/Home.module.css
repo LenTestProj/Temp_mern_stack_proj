@@ -1,5 +1,5 @@
 .main{
-  @apply w-full flex flex-col items-center justify-center bg-slate-200 pb-40
+  @apply w-full flex flex-col items-center justify-center bg-slate-200 pb-40 
 }
 
 .header{
@@ -7,7 +7,7 @@
 }
 
 .text{
-  @apply w-[31rem] text-[0.77rem] font-bold
+  @apply w-[90%] sm:w-[31rem] text-[0.77rem] font-bold 
 }
 
 .list{

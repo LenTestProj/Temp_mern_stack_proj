@@ -7,15 +7,15 @@
     border-radius:50%;
     overflow:hidden;
     padding:3px;
-    @apply rounded-full text-[1.7rem] text-white bg-[#10282b]
+    @apply rounded-full text-[1.3rem] sm:text-[1.7rem] text-white bg-[#10282b]
 }
 
 .guestUserText{
-    @apply font-bold text-[0.70rem]
+    @apply font-bold sm:text-[0.70rem] text-[0.60rem]
 }
 
 .guestUserMiniUserSection{
-    @apply pl-1
+    @apply sm:pl-1 pl-4
 }
 
 .miniUser{

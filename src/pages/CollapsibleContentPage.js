@@ -4,7 +4,7 @@ import Sidebar from '../components/Sidebar/Sidebar'
 
 const CollapsibleContentPage = () => {
   return (
-    <div className='flex'>
+    <div className='flex pt-10 sm:pt-2'>
       <Sidebar />
       <CollapsibleContent />
     </div>

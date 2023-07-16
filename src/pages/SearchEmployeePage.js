@@ -4,7 +4,7 @@ import Sidebar from '../components/Sidebar/Sidebar';
 
 const SearchEmployeePage = () => {
   return (
-    <div className='flex'>
+    <div className='flex pt-10 sm:pt-2'>
       <Sidebar />
       <SearchEmployee />
     </div>

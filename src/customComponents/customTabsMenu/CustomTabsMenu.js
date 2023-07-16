@@ -29,7 +29,7 @@ const CustomTabsMenu = ({tabValues, tabContent}) => {
 
   return (
     <div className={classes.main}>
-      <div>
+      <div className="flex">
         <ul className={classes.tabs} onClick={setActiveTab}>
           {tabsArray.map((tab,i)=>{
             return <li key={i} id={i} className={classes.tabItem+` ${tab.isActive? classes.selectedTabItem:''}`}>{tab.value}</li>
