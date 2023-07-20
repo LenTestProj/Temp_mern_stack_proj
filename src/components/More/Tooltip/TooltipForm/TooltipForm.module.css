@@ -24,5 +24,5 @@
 
 .tooltipText::after{
     content:"";
-    @apply absolute left-[40%] bottom-full border-[4px] border-b-black border-t-transparent border-l-transparent border-r-transparent
+    @apply absolute left-[50%] bottom-full border-[4px] border-b-black border-t-transparent border-l-transparent border-r-transparent
 }

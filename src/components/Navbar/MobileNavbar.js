@@ -3,10 +3,11 @@ import classes from './Mobilenavbar.module.css';
 import Context from '../../context/context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
-
+import { useNavigate } from 'react-router-dom';
 
 const MobileNavbar = () => {
-   const {showMobileSidebar,setShowMobileSidebar}=useContext(Context);
+   const {showMobileSidebar,setShowMobileSidebar,logout}=useContext(Context);
+   const navigate=useNavigate();
     const windowResizeListener=useCallback(()=>{
     if(showMobileSidebar && window.innerWidth<720){
         setShowMobileSidebar(false);
@@ -21,6 +22,7 @@ const MobileNavbar = () => {
    }
    ,[windowResizeListener])
   
+  
     return (
     <div className={classes.main}>
       <div className={classes.item} onClick={()=>setShowMobileSidebar(prev=>!prev)}>
@@ -30,7 +32,7 @@ const MobileNavbar = () => {
       </div>
       <div className={classes.item}>
         <FontAwesomeIcon icon={faRightToBracket} className={classes.logoutIcon}/>
-        <button>Logout</button>
+        <button onClick={logout}>Logout</button>
       </div>
     </div>
   )

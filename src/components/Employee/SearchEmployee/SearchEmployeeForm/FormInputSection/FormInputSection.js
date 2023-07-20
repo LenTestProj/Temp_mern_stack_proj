@@ -30,7 +30,7 @@ const FormInputSection = () => {
         );
       })}
       <div className={classes.buttonSection}>
-        <button className={classes.button + " bg-green-700 mr-1"}>Search</button>
+        <button className={classes.button + " bg-green-700 sm:mr-1"}>Search</button>
         <button className={classes.button + " bg-red-600 "}>Clear</button>
       </div>
     </div>

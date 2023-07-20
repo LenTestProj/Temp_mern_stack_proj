@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import SidebarOriginalItems from "../../data/sidebarlistItems.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { CSSTransition } from "react-transition-group";
@@ -15,11 +15,13 @@ import {
 import classes from "./SidebarList.module.css";
 import './Sublist.css'
 import { useNavigate } from "react-router-dom";
+import Context from "../../context/context";
 
 const SidebarList = () => {
   const [sidebarListItems, setSidebarListItems] =
     useState(SidebarOriginalItems);
   const navigate=useNavigate();  
+  const {setShowMobileSidebar}=useContext(Context);
 
   useEffect(() => {
     setSidebarListItems((prevList) => {
@@ -35,6 +37,7 @@ const SidebarList = () => {
   const listItemOpen = (itemNum) => {
     if(itemNum===0){
       navigate('/Home/Index');
+      // window.innerWidth<720 && setShowMobileSidebar(false);
     }
     else{
       setSidebarListItems(
@@ -47,8 +50,20 @@ const SidebarList = () => {
           return item;
         })
       );
-    }
+    }  
   };
+
+  const subListItemClick=(path)=>{
+    navigate(path);
+    // if(window.innerWidth<720) {
+    //   let timer;
+    //   timer=setTimeout(()=>{
+    //     setShowMobileSidebar(false);
+    //     clearTimeout(timer);
+    //     console.log('sidebar timeout cleared');
+    //   },1000);
+    // }
+  }
 
   return (
     <div className={classes.main}>
@@ -86,7 +101,7 @@ const SidebarList = () => {
                     {item.subList.map((subItem, subIndex) => {
                       return (
                         <li key={subIndex}>
-                          <div className={classes.subListItemSection} onClick={()=>navigate(subItem.path)}>
+                          <div className={classes.subListItemSection} onClick={()=>subListItemClick(subItem.path)}>
                             <FontAwesomeIcon
                               icon={(i===1 && subIndex===0)?faPenToSquare:(i===1 && subIndex===1)?faSearch:faHandPointRight}
                               className={classes.mainListIconImage}

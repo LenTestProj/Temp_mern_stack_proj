@@ -30,6 +30,10 @@
     @apply bg-blue-400 p-[0.3rem] text-white
 }
 
+.signinButton:disabled{
+    @apply cursor-not-allowed bg-gray-400
+}
+
 .rememberMeCheckBox{
     @apply scale-150  cursor-pointer appearance-none w-3 h-3 bg-slate-200 mt-[0.1rem] border-2 border-blue-500  flex items-center justify-center 
 }

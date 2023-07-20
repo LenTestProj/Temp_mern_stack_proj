@@ -1,26 +1,43 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState } from "react";
 
-const initialState={
-    user:JSON.parse(localStorage.getItem('user'))||null,
-    showMobileSidebar:false
-}
+const initialState = {
+  user: localStorage.getItem("user") || null,
+  showMobileSidebar: false,
+};
 
-export const Context=createContext(initialState);
+export const Context = createContext(initialState);
 
-export const ContextProvider = ({children}) => {
-   const  [currentUser,setCurrentUser]=useState(initialState.user);
-   const [showMobileSidebar,setShowMobileSidebar]=useState(initialState.showMobileSidebar);
+export const ContextProvider = ({ children }) => {
+  const [currentUser, setCurrentUser] = useState(initialState.user);
+  const [showMobileSidebar, setShowMobileSidebar] = useState(
+    initialState.showMobileSidebar
+  );
+
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    localStorage.removeItem("expiryDate");
+    setCurrentUser(null);
+  };
+
+  const autoLogout=(duration)=>{
+    setTimeout(()=>logout(),duration);
+  }
 
   return (
-    <Context.Provider value={{
-        user:currentUser,
+    <Context.Provider
+      value={{
+        user: currentUser,
         showMobileSidebar,
         setCurrentUser,
-        setShowMobileSidebar
-    }}>
+        setShowMobileSidebar,
+        logout,autoLogout
+      }}
+    >
       {children}
     </Context.Provider>
-  )
-}
+  );
+};
 
-export default Context
+export default Context;

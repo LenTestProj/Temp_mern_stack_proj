@@ -3,13 +3,49 @@
 }
 
 .listHeaderSection{
-    @apply flex w-[98%]  
+    @apply flex 
 }
 
 .listItem{
-    @apply flex text-[0.6rem] border border-gray-200 p-1 justify-between overflow-hidden items-center
+    @apply sm:flex sm:text-[0.6rem] text-[0.54rem] border border-gray-200 p-1 justify-between overflow-hidden items-center 
 }
 
 .lisItemHeaderSymbol{
-    @apply pt-1 text-gray-500
+    @apply pt-1 text-gray-500 
+}
+
+.firstName{
+    @apply sm:w-[14%] w-[19%]
+}
+
+.lastName{
+    @apply sm:w-[8.7%] w-[20%] 
+}
+
+.mobileNumber{
+    @apply sm:w-[10%] w-[21%]
+}
+
+.email{
+    @apply sm:w-[20%] w-[25%]
+}
+
+.gender{
+    @apply w-[8.3%] hidden sm:flex duration-700
+}
+
+.dob{
+    @apply w-[11%] hidden sm:flex duration-700
+}
+
+.country{
+    @apply w-[10%] hidden sm:flex duration-700
+}
+
+.city{
+    @apply w-[10%] hidden sm:flex duration-700
+}
+
+.action{
+    @apply sm:w-[8%] w-[18%]
 }

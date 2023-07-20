@@ -32,7 +32,8 @@ const useInput = () => {
           onChange:setEmailValue,
           onBlur:EmailInputBlurHandler,
           inputTouched:isEmailInputTouched,
-          errorMessage:'Please enter email or mobile no.'
+          errorMessage:'Please enter email or mobile no.',
+          isValid:emailValue.includes('@')
         },
         {
           name:'password',
@@ -42,7 +43,8 @@ const useInput = () => {
           onChange:setPasswordValue,
           onBlur:PasswordInputBlurHandler,
           inputTouched:isPasswordInputTouched,
-          errorMessage:'Please enter a valid password'
+          errorMessage:'Please enter a valid password',
+          isValid:passwordValue.length>2
         }
       ]},[emailValue,setEmailValue,passwordValue,setPasswordValue,isEmailInputTouched, isPasswordInputTouched, EmailInputBlurHandler,PasswordInputBlurHandler]);
     

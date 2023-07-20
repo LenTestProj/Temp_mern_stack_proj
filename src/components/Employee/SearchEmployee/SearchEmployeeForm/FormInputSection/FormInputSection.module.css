@@ -19,9 +19,9 @@
 }
 
 .button{
-    @apply text-[0.62rem] w-[3rem] text-white cursor-pointer h-[50%] mb-1
+    @apply sm:text-[0.62rem] text-[0.58rem] w-[90%] sm:w-[5rem] text-white cursor-pointer h-[50%] mb-1
 }
 
 .buttonSection{
-    @apply flex p-1 mx-2  w-[10rem] items-end
+    @apply flex p-1 mx-2  sm:w-[10rem] items-end flex-col sm:flex-row w-[80%] 
 }
