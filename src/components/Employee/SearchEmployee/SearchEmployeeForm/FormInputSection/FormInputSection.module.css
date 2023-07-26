@@ -19,9 +19,13 @@
 }
 
 .button{
-    @apply sm:text-[0.62rem] text-[0.58rem] w-[90%] sm:w-[5rem] text-white cursor-pointer h-[50%] mb-1
+    @apply sm:text-[0.62rem] text-[0.58rem] w-[90%] sm:w-[5rem] text-white cursor-pointer h-[1.3rem] mb-1
 }
 
 .buttonSection{
-    @apply flex p-1 mx-2  sm:w-[10rem] items-end flex-col sm:flex-row w-[80%] 
+    @apply flex p-1 mx-2  sm:w-[10rem] items-center flex-col sm:flex-row w-[80%] sm:pt-5 pt-0
+}
+
+.error{
+    @apply text-[0.6rem] text-red-600 py-1
 }

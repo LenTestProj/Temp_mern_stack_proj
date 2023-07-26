@@ -13,15 +13,15 @@ import {
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 import classes from "./SidebarList.module.css";
-import './Sublist.css'
-import { useNavigate } from "react-router-dom";
+import "./Sublist.css";
+import { NavLink, useNavigate } from "react-router-dom";
 import Context from "../../context/context";
 
 const SidebarList = () => {
   const [sidebarListItems, setSidebarListItems] =
     useState(SidebarOriginalItems);
-  const navigate=useNavigate();  
-  const {setShowMobileSidebar}=useContext(Context);
+  const navigate = useNavigate();
+  const { setShowMobileSidebar } = useContext(Context);
 
   useEffect(() => {
     setSidebarListItems((prevList) => {
@@ -34,12 +34,55 @@ const SidebarList = () => {
     });
   }, []);
 
-  const listItemOpen = (itemNum) => {
-    if(itemNum===0){
-      navigate('/Home/Index');
-      // window.innerWidth<720 && setShowMobileSidebar(false);
+  useEffect(() => {
+    const sidebarValues = JSON.parse(localStorage.getItem("sidebarValues"));
+    const sidebarHeaderItem = sidebarValues.headerItem;
+    const sidebarSubListItem = sidebarValues.subListItem;
+    if (sidebarHeaderItem === "Home") {
+      setSidebarListItems((prev) =>
+        prev.map((item, i) => {
+          item.title === "Home" ? (item.isActive = true) : (item.isActive = false);
+          item.subList = item.subList.length>0 ?item.subList.map((subItem) => {
+            subItem.isActive = false;
+            return subItem;
+          }):item.subList;
+          return item;
+        })
+      );
+      return;
+    } else if (!sidebarHeaderItem || !sidebarSubListItem) {
+      return;
+    } else {
+      setSidebarListItems((prev) =>
+        prev.map((item, i) => {
+          if (item.title === sidebarHeaderItem) {
+            item.isActive=true;
+            item.subList.map((subItem) => {
+              if (subItem.title === sidebarSubListItem) {
+                subItem.isActive = true;
+              } else {
+                subItem.isActive = false;
+              }
+              return subItem;
+            });
+          } else {
+            item.isActive=false;
+            item.subList = item.subList.length>0 ?item.subList.map((subItem) => {
+              subItem.isActive = false;
+              return subItem;
+            }):item.subList;
+          }
+          return item;
+        })
+      );
     }
-    else{
+  }, []);
+
+  const listItemOpen = (itemNum) => {
+    if (itemNum === 0) {
+      navigate("/Home/Index");
+      // window.innerWidth<720 && setShowMobileSidebar(false);
+    } else {
       setSidebarListItems(
         sidebarListItems.map((item, i) => {
           if (i === itemNum) {
@@ -50,29 +93,21 @@ const SidebarList = () => {
           return item;
         })
       );
-    }  
+    }
   };
-
-  const subListItemClick=(path)=>{
-    navigate(path);
-    // if(window.innerWidth<720) {
-    //   let timer;
-    //   timer=setTimeout(()=>{
-    //     setShowMobileSidebar(false);
-    //     clearTimeout(timer);
-    //     console.log('sidebar timeout cleared');
-    //   },1000);
-    // }
-  }
 
   return (
     <div className={classes.main}>
       <ul>
         {sidebarListItems.map((item, i) => (
-          <li key={i} >
+          <li key={i}>
             <div className={classes.mainListItem}>
               <div
-                className={classes.mainListItemSection}
+                className={
+                  classes.mainListItemSection +
+                  " " +
+                  (item.isActive ? classes.activeItem : "")
+                }
                 onClick={listItemOpen.bind(null, i)}
               >
                 <div className="flex">
@@ -94,26 +129,45 @@ const SidebarList = () => {
                   )}
                 </div>
               </div>
-              {item.subList.length>0 &&(
-                <CSSTransition in={item.isOpen} unmountOnExit timeout={1000} classNames="sublist-display">
-                <div className={classes.sublist}>
-                <ul>
-                    {item.subList.map((subItem, subIndex) => {
-                      return (
-                        <li key={subIndex}>
-                          <div className={classes.subListItemSection} onClick={()=>subListItemClick(subItem.path)}>
-                            <FontAwesomeIcon
-                              icon={(i===1 && subIndex===0)?faPenToSquare:(i===1 && subIndex===1)?faSearch:faHandPointRight}
-                              className={classes.mainListIconImage}
-                            />
-                            <p className={classes.subListItemText}>
-                              {subItem.title}
-                            </p>
-                          </div>
-                        </li>
-                      );
-                    })}
-                  </ul>
+
+              {item.subList.length > 0 && (
+                <CSSTransition
+                  in={item.isOpen}
+                  unmountOnExit
+                  timeout={1000}
+                  classNames="sublist-display"
+                >
+                  <div className={classes.sublist}>
+                    <ul>
+                      {item.subList.map((subItem, subIndex) => {
+                        return (
+                          <li key={subIndex}>
+                            <div
+                              className={
+                                classes.subListItemSection +
+                                " " +
+                                (subItem.isActive ? classes.activeSubitem : "")
+                              }
+                              onClick={() => navigate(subItem.path)}
+                            >
+                              <FontAwesomeIcon
+                                icon={
+                                  i === 1 && subIndex === 0
+                                    ? faPenToSquare
+                                    : i === 1 && subIndex === 1
+                                    ? faSearch
+                                    : faHandPointRight
+                                }
+                                className={classes.mainListIconImage}
+                              />
+                              <p className={classes.subListItemText}>
+                                {subItem.title}
+                              </p>
+                            </div>
+                          </li>
+                        );
+                      })}
+                    </ul>
                   </div>
                 </CSSTransition>
               )}

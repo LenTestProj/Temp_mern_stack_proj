@@ -1,4 +1,4 @@
-import React, { useImperativeHandle, useMemo, useState } from "react";
+import React, { useEffect, useImperativeHandle, useMemo, useState } from "react";
 import classes from "./FormSecondSection.module.css";
 
 const SecondSectionValues = [
@@ -16,14 +16,23 @@ const SecondSectionValues = [
   },
 ];
 
-const FormSecondSection = React.forwardRef((props,ref) => {
-  const [mobileNumber,setMobileNumber]=useState('');
-  const [dob,setDOB]=useState('');
-  const [gender,setGender]=useState('');
+const FormSecondSection = React.forwardRef(({isEdit,editedValues},ref) => {
+  const [mobileNumber,setMobileNumber]=useState(isEdit?editedValues.mobileNumber:'');
+  const [dob,setDOB]=useState(isEdit?editedValues.dob:'');
+  const [gender,setGender]=useState(isEdit?editedValues.gender:'male');
+  
   const [mobileNumberError,setMobileNumberError]=useState({
     hasError:false,
     message:'Please enter mobile number'
   })
+
+  useEffect(()=>{
+    if(isEdit){
+      editedValues.mobileNumber.toString().length>0 && setMobileNumber(editedValues.mobileNumber);
+      editedValues.dob.length>0 && setDOB(editedValues.dob);
+      editedValues.gender.length>0 && setGender(editedValues.gender);
+    }
+  },[editedValues.mobileNumber,editedValues.dob,editedValues.gender,isEdit])
 
 
   const fetchData=()=>{
@@ -78,10 +87,10 @@ const FormSecondSection = React.forwardRef((props,ref) => {
       <div className={classes.extraItem}>
         <p className={classes.genderText}>Gender</p>
         <div className={classes.genderItem}>
-          <input type="radio"  name="gender" value="male" className={classes.radio} onChange={(event)=>setGender(event.target.value)}/><p className={classes.genderItemText}>Male</p>
+          <input type="radio"  name="gender" value="male" className={classes.radio} onChange={(event)=>setGender(event.target.value)} checked={gender==='male'}/><p className={classes.genderItemText}>Male</p>
         </div>
         <div className={classes.genderItem}>
-          <input type="radio" name="gender" value="female" className={classes.radio} onChange={(event)=>setGender(event.target.value)}/><p className={classes.genderItemText}>Female</p>
+          <input type="radio" name="gender" value="female" className={classes.radio} onChange={(event)=>setGender(event.target.value)} checked={gender==='female'}/><p className={classes.genderItemText}>Female</p>
         </div>
       </div>
     </div>

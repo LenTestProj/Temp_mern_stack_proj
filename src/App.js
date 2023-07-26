@@ -37,6 +37,7 @@ function App() {
         <Route path="/Account/AdminLogin" element={<AdminLoginPage />} />
         <Route path="/Employee/Create" element={user?<CreateEmployeePage />:<Navigate to="/" replace />} />
         <Route path="/Employee/Search" element={user?<SearchEmployeePage />:<Navigate to="/" replace />} />
+        <Route path="/Employee/edit/:empId" element={user?<CreateEmployeePage />:<Navigate to="/" replace />} />
         <Route path="/Home/Tabs" element={user?<MultipleTabsPage />:<Navigate to="/" replace />} />
         <Route path="/Home/Menu" element={user?<MenuPage />:<Navigate to="/" replace />} />
         <Route path="/Home/Autocomplete" element={user?<AutocompletePage />:<Navigate to="/" replace />} />

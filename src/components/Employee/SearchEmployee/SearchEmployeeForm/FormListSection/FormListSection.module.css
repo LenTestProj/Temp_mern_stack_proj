@@ -14,6 +14,14 @@
     @apply pt-1 text-gray-500 
 }
 
+.buttonSection{
+    @apply flex p-1 sm:w-[95%] w-full items-center flex-col justify-center
+}
+
+.button{
+    @apply sm:text-[0.62rem] text-[0.38rem] sm:w-full w-[70%]  text-white cursor-pointer  mb-1 
+}
+
 .firstName{
     @apply sm:w-[14%] w-[19%]
 }
@@ -31,21 +39,25 @@
 }
 
 .gender{
-    @apply w-[8.3%] hidden sm:flex duration-700
+    @apply w-[8.3%] hidden sm:flex 
 }
 
 .dob{
-    @apply w-[11%] hidden sm:flex duration-700
+    @apply w-[11%] hidden sm:flex
 }
 
 .country{
-    @apply w-[10%] hidden sm:flex duration-700
+    @apply w-[10%] hidden sm:flex
 }
 
 .city{
-    @apply w-[10%] hidden sm:flex duration-700
+    @apply w-[10%] hidden sm:flex 
 }
 
 .action{
     @apply sm:w-[8%] w-[18%]
+}
+
+.noEmployeeFound{
+    @apply pt-3 text-xl
 }

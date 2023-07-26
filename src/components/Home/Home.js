@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
+import Context from '../../context/context';
 import classes from './Home.module.css';
 
 const Home = () => {
+  const {setShowMobileSidebar}=useContext(Context);
+
+  useEffect(()=>{
+    window.innerWidth<720 && setShowMobileSidebar(false);
+  },[setShowMobileSidebar]);
+
   return (
     <div className={classes.main}>
       <div className={classes.header}>

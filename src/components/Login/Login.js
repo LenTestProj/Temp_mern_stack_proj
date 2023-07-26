@@ -13,7 +13,7 @@ import CustomeToastMessage from '../../customComponents/CustomToastMessage/Custo
 
 const Login = () => {
   const [isLoading,setIsLoading]=useState(false);
-  const inputArray=useInput();
+  const inputArray=useInput('training@jalaacademy.com','jobprogram');
   const navigate=useNavigate();
   const {setCurrentUser,
     autoLogout}=useContext(Context)

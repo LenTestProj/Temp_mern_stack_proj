@@ -7,7 +7,11 @@
 }
 
 .mainListItemSection{
-    @apply flex justify-between pr-2 cursor-pointer pt-2 leading-4
+    @apply flex justify-between pr-2 cursor-pointer pt-2 leading-4 text-white opacity-[0.7] hover:opacity-[1]
+}
+
+.activeItem{
+    @apply opacity-[1]
 }
 
 .mainListIconImage{
@@ -31,7 +35,11 @@
 }
 
 .subListItemSection{
-    @apply flex cursor-pointer 
+    @apply flex cursor-pointer text-white opacity-[0.5] hover:opacity-[1]
+}
+
+.activeSubitem{
+    @apply opacity-[1]
 }
 
 .sublist{

@@ -1,4 +1,4 @@
-import React, { useImperativeHandle, useMemo, useState } from "react";
+import React, { useEffect, useImperativeHandle, useMemo, useState } from "react";
 import classes from "./FormFirstSection.module.css";
 
 const FirstSectionValues = [
@@ -29,13 +29,19 @@ const initialInputErrors=[
   {hasError:false,message:'Please enter email.'}
 ]
 
-const FormFirstSecion =React.forwardRef((props,ref) => {
-  const [firstName,setFirstName]=useState("");
-  const [lastName,setLastName]=useState("");
-  const [email,setEmail]=useState("");
+const FormFirstSecion =React.forwardRef(({isEdit,editedValues},ref) => {
+  const [firstName,setFirstName]=useState(isEdit?editedValues.firstName:""); 
+  const [lastName,setLastName]=useState(isEdit?editedValues.lastName:"");
+  const [email,setEmail]=useState(isEdit?editedValues.email:"");
   const [inputErrors,setInputErrors]=useState(JSON.parse(JSON.stringify(initialInputErrors)));
 
-  
+  useEffect(()=>{
+      if(isEdit){
+        editedValues.firstName.length>0 && setFirstName(editedValues.firstName);
+        editedValues.lastName.length>0 && setLastName(editedValues.lastName);
+        editedValues.email.length>0 && setEmail(editedValues.email);
+      }
+  },[editedValues.firstName,editedValues.lastName,editedValues.email,isEdit])
 
   const fetchData=()=>{
     if(firstName.length===0){
@@ -78,8 +84,7 @@ const FormFirstSecion =React.forwardRef((props,ref) => {
     }
   })
 
-  const inputValues = useMemo(()=>{
-    return [
+  const inputValues =  useMemo(()=>[
     {
       value:firstName,
       setValue:setFirstName
@@ -92,8 +97,7 @@ const FormFirstSecion =React.forwardRef((props,ref) => {
       value:email,
       setValue:setEmail
     }
-  ]},[email,firstName,lastName])
-
+  ],[email,firstName,lastName])
 
   return (
     <div className={classes.main}>

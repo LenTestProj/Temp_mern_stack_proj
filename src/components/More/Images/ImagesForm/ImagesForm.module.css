@@ -1,9 +1,9 @@
 .main{
-    @apply px-2 py-2 flex flex-col items-center w-[98.5%]
+    @apply px-2 py-2 flex flex-col items-center w-full 
 }
 
 .form{
-    @apply w-[98.5%] 
+    @apply w-full 
 }
 
 .content{
@@ -35,4 +35,32 @@
 
 .buttonSection{
     @apply items-center justify-center sm:justify-end w-full sm:w-[20%] pt-2 sm:pt-0
+}
+
+.error{
+    @apply text-red-500 pt-1
+}
+
+.list{
+    @apply flex flex-wrap
+}
+
+.listItem{
+    @apply flex flex-col border items-center ml-1 mr-3 border-black w-[44%] sm:w-[10rem] p-1 my-2
+}
+
+.image{
+    @apply w-full h-[5.2rem] sm:h-[8rem]
+}
+
+.deleteButton{
+    @apply  bg-orange-600 py-1 px-3 text-white rounded-full text-[0.6rem]
+}
+
+.imageText{
+    @apply p-1 font-semibold
+}
+
+.secondHalf{
+    @apply pt-2 h-auto
 }

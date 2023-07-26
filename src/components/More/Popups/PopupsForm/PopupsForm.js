@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import classes from "./PopupsForm.module.css";
-import PopupModal from "../PopupModal/PopupModal";
+import PopupModal from "../../../../customComponents/PopupModal/PopupModal";
 import CustomTabsMenu from "../../../../customComponents/customTabsMenu/CustomTabsMenu";
 
 const FirstRowItems = [
@@ -60,6 +60,9 @@ const rows = {
   SecondRow: JSON.parse(JSON.stringify(SecondRowItems)),
   ThirdRow: JSON.parse(JSON.stringify(ThirdRowItems)),
 };
+
+const PopupHeader='Popup One';
+const PopupBody='Popup One body.. Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.';
 
 const Popup = () => {
   const [rowItems, setRowItems] = useState(structuredClone(rows));
@@ -179,9 +182,13 @@ const Popup = () => {
     }
   };
 
+  const closeModal=()=>{
+    setShowPopupModal(false);
+  }
+
   return (
     <>
-      {showPopupModal && <PopupModal onClose={setShowPopupModal} />}
+      {showPopupModal && <PopupModal onClose={closeModal} header={PopupHeader} body={PopupBody} btns={[{name:'Close',onClick:closeModal}]}/>}
       <div className={classes.content} onClick={resetAllItems}>
         <div className={classes.row}>
           {rowItems.FirstRow.map((item, i) => {

@@ -3,7 +3,7 @@
 }
 
 .header{
-  @apply text-3xl pb-20
+  @apply text-3xl sm:pb-20 pb-10 sm:pt-0 pt-[5rem] sm:pl-0 pl-5
 }
 
 .text{

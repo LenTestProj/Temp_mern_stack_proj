@@ -1,8 +1,8 @@
-import React, { useImperativeHandle, useState } from 'react';
+import React, { useEffect, useImperativeHandle, useState } from 'react';
 import classes from './FormThirdSection.module.css';
 
-const FormThirdSection = React.forwardRef((props,ref) => {
-  const [address,setAddress]=useState('');
+const FormThirdSection = React.forwardRef(({isEdit,editedValues},ref) => {
+  const [address,setAddress]=useState(isEdit?editedValues.address:'');
 
   const fetchData=()=>{
     let finalData={};
@@ -13,6 +13,13 @@ const FormThirdSection = React.forwardRef((props,ref) => {
   useImperativeHandle(ref,()=>({
     getData:fetchData
   }))
+
+  useEffect(()=>{
+    if(isEdit){
+      editedValues.address.length>0 && setAddress(editedValues.address);
+      
+    }
+  },[editedValues.address,isEdit])
 
   return (
     <div className={classes.main}>

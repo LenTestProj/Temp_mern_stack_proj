@@ -1,4 +1,4 @@
-import React, { useImperativeHandle, useMemo, useState } from "react";
+import React, { useEffect, useImperativeHandle, useMemo, useState } from "react";
 import CustomCheckBox from "../../../../../customComponents/customCheckBox/CustomCheckBox";
 import classes from "./FormFifthSection.module.css";
 
@@ -6,16 +6,27 @@ const skillsSection1 = ["AWS", "DevOps", "Full Stack Developer", "Middleware"];
 
 const skillsSection2 = ["QA-Automation", "Webservices"];
 
-const FormFifthSection = React.forwardRef((props,ref) => {
+const FormFifthSection = React.forwardRef(({isEdit,editedValues},ref) => {
   const skillsFirstSection = useState(skillsSection1)[0];
   const skillsSecondSection = useState(skillsSection2)[0];
-  const [isAWSChecked, setIsAWSChecked] = useState(false);
-  const [isDevOpsChecked, setIsDevOpsChecked] = useState(false);
+  const [isAWSChecked, setIsAWSChecked] = useState(isEdit?editedValues.isAWS:false);
+  const [isDevOpsChecked, setIsDevOpsChecked] = useState(isEdit?editedValues.isDevOps:false);
   const [isFullStackDeveloperChecked, setIsFullStackDeveloperChecked] =
-    useState(false);
-  const [isMiddlewareChecked, setIsMiddlewareChecked] = useState(false);
-  const [isQAAutomationChecked, setIsQAAutomationChecked] = useState(false);
-  const [isWebServicesChecked, setIsWebServicesChecked] = useState(false);
+    useState(isEdit?editedValues.isFullStackDeveloper:false);
+  const [isMiddlewareChecked, setIsMiddlewareChecked] = useState(isEdit?editedValues.isMiddleware:false);
+  const [isQAAutomationChecked, setIsQAAutomationChecked] = useState(isEdit?editedValues.isQAAutomation:false);
+  const [isWebServicesChecked, setIsWebServicesChecked] = useState(isEdit?editedValues.isWebServices:false);
+
+  useEffect(()=>{
+    if(isEdit){
+      editedValues.isAWS && setIsAWSChecked(editedValues.isAWS);
+      editedValues.isDevOps && setIsDevOpsChecked(editedValues.isDevOps)
+      editedValues.isFullStackDeveloper && setIsFullStackDeveloperChecked(editedValues.isFullStackDeveloper);
+      editedValues.isMiddleware && setIsMiddlewareChecked(editedValues.isMiddleware);
+      editedValues.isQAAutomation && setIsQAAutomationChecked(editedValues.isQAAutomation);
+      editedValues.isWebServices && setIsWebServicesChecked(editedValues.isWebServices);
+    } 
+  },[editedValues.isAWS,editedValues.isDevOps,editedValues.isFullStackDeveloper,editedValues.isMiddleware,editedValues.isQAAutomation,editedValues.isWebServices,isEdit]);
 
   const firstSectionValues = useMemo(
     () => [
@@ -90,6 +101,7 @@ const FormFifthSection = React.forwardRef((props,ref) => {
                 classname="w-3 h-3 mb-1 ml-1"
                 textclassname={`${i === 2 ? "w-[10rem]" : " "} pt-[0.1rem]`}
                 setValue={firstSectionValues[i].setValue}
+                isChecked={firstSectionValues[i].value}
               />
             </div>
           );
@@ -105,6 +117,7 @@ const FormFifthSection = React.forwardRef((props,ref) => {
                 classname="w-3 h-3 mb-1 ml-1"
                 textclassname="pt-[0.1rem]"
                 setValue={secondSectionValues[i].setValue}
+                isChecked={secondSectionValues[i].value}
               />
             </div>
           );

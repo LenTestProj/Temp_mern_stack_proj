@@ -1,5 +1,5 @@
 .main{
-    @apply p-2 fixed top-[10%] left-[25%] translate-x-5 w-[60%] translate-y-5 bg-white z-10
+    @apply p-2 fixed top-[10%] left-[25%] w-[60%]  bg-white z-10
 }
 
 .overlay{

@@ -3,7 +3,7 @@
 }
 
 .SectionItem{
-    @apply text-[0.6rem] sm:w-[25%] w-[30%] m-2 flex flex-col
+    @apply text-[0.6rem] sm:w-[29.5%] w-[30%] m-2 flex flex-col
 }
 
 .label{
